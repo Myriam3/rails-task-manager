@@ -1,0 +1,23 @@
+<% if @task %>
+<h1>Task</h1>
+<div>
+  <label>
+    <input type="checkbox" <% if @task.completed %>checked="true"<% end %> disabled>
+    <%= @task.title %>
+  </label>
+
+  <p><%= @task.details %></p>
+
+  <a href="/tasks/<%= @task.id %>/edit">Edit</a>
+
+  <%= link_to "Delete",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}
+  %>
+
+  <ul>
+    <li><%= link_to "All tasks", index_path %></li>
+    <li><%= link_to "New task", new_path %></li>
+  </ul>
+</div>
+<% end %>

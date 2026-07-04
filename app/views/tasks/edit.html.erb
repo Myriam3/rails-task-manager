@@ -1,0 +1,16 @@
+<h1>Edit task</h1>
+<% if @task %>
+  <%= form_with model: @task do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+    <%= f.label :completed %>
+    <%= f.checkbox :completed %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<ul>
+  <li><%= link_to "All tasks", index_path %></li>
+</ul>
